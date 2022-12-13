@@ -1,9 +1,8 @@
-import TodoItem from "./TodoItem";
+import TodoItem from './TodoItem';
 
-const TodosList = props => {
-    return (
+const TodosList = (props) => (
         <ul>
-            {props.todos.map(todo => (
+            {props.todos.map((todo) => (
                 <TodoItem
                     key={todo.id}
                     todo={todo}
@@ -13,6 +12,5 @@ const TodosList = props => {
                 />
             ))}
         </ul>
-    )
-}
-export default TodosList  
+);
+export default TodosList;

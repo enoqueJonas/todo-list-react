@@ -1,23 +1,23 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const InputTodo = (props) => {
-    const [title, setTitle] = useState('');
+  const [title, setTitle] = useState('');
 
-    const onChange = (e) => {
-        setTitle(e.target.value);
+  const onChange = (e) => {
+    setTitle(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (title.trim()) {
+      props.addTodoProps(title);
+      setTitle('');
+    } else {
+      alert('Please write item');
     }
+  };
 
-    const handleSubmit = e => {
-        e.preventDefault()
-        if (title.trim()) {
-            props.addTodoProps(title)
-            setTitle("");
-        } else {
-            alert("Please write item")
-        }
-    }
-
-    return (
+  return (
         <form onSubmit={handleSubmit} className='form-container'>
             <input
                 type="text"
@@ -27,6 +27,6 @@ const InputTodo = (props) => {
                 onChange={onChange} />
             <button className="input-submit">Submit</button>
         </form>
-    )
-}
-export default InputTodo
+  );
+};
+export default InputTodo;
